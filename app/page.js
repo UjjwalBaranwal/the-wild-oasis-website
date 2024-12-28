@@ -1,16 +1,31 @@
+import Image from "next/image";
 import Link from "next/link";
-import Navigation from "./_components/navigation";
+import Bg from "@/public/bg.png";
+// import Navigation from "./_components/navigation";
 
 export default function Page() {
   return (
-    <div>
-      {/* <Navigation /> */}
-      <h1>The Wild Oasis. Welcome to Paradise</h1>
+    <main className="mt-24">
+      <Image
+        src={Bg}
+        fill
+        className="object-cover object-top"
+        alt="Mountains and forests with two cabins"
+        placeholder="blur"
+        quality={80}
+      />
 
-      {/*
-        This will cause whole page to reload      
-      <a href="/cabins">explore luxury cabin</a>*/}
-      <Link href="/cabins">Explore Luxury Cabins</Link>
-    </div>
+      <div className="relative z-10 text-center">
+        <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal">
+          Welcome to paradise.
+        </h1>
+        <Link
+          href="/cabins"
+          className="bg-accent-500 px-8 py-6 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"
+        >
+          Explore luxury cabins
+        </Link>
+      </div>
+    </main>
   );
 }
