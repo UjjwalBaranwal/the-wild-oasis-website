@@ -1,5 +1,6 @@
 import Counter from "../_components/Counter";
 import CabinCard from "@/app/_components/CabinCard";
+import { getCabins } from "../_lib/data-service";
 
 // import Navigation from "../_components/navigation";
 
@@ -32,9 +33,12 @@ import CabinCard from "@/app/_components/CabinCard";
 //   );
 // }
 
-export default function Page() {
+export default async function Page() {
   // CHANGE
-  const cabins = [];
+  console.log("Starting ............");
+
+  const cabins = await getCabins();
+  // console.log(cabins);
 
   return (
     <div>
