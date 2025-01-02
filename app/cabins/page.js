@@ -25,9 +25,6 @@ import Spinner from "../_components/Spinner";
 //       </div>
 //     );
 //   }
-// export const metadata = {
-//   title: "Cabins",
-// };
 // export default async function Page() {
 //   return (
 //     <div>
@@ -36,6 +33,17 @@ import Spinner from "../_components/Spinner";
 //   );
 // }
 
+export const metadata = {
+  title: "Cabins",
+};
+// export const revalidate = 0; // value always be in second
+
+/* see the revalidate = 0 mean always get data from the database(supabase) in this case which is not good as for this page data change very less times 
+so what we can do that using incremental  static regeneration (mean define the time when data will be refetched) 
+Let assume refetched once per hour
+*/
+export const revalidate = 3600;
+// export const revalidate = 15; //for testing purpuse
 export default function Page() {
   // CHANGE
   // console.log("Starting ............");
